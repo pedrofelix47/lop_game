@@ -6,13 +6,18 @@ var maxH=7
 var parametro = 1
 var play = false
 function preload() {
-  img = loadImage("https://2.bp.blogspot.com/-Ly6qVY_V8dg/W_K3tpbYVXI/AAAAAAAASPU/fijqWUbowl0nwusgA1HsFuy-MCfezrGXACLcBGAs/s1600/a13fcd2fea6425a%2B%25282%2529.png")
-  img2 = loadImage("https://4.bp.blogspot.com/-lUP9WQqPZGM/XABY7T-lBzI/AAAAAAAASj0/t_TjjcYmbC0nYzrE-ElgBluvbbYfQAW5wCLcBGAs/s320/New%2BPiskel%2B%25281%2529.png")
-  img3 = loadImage("https://3.bp.blogspot.com/-VAYTIDpqg8Y/XABKHPZUa0I/AAAAAAAASjM/4ZbsSLANsSkQRUTbqm_oOd2ZXzj4NLzqQCLcBGAs/s320/New%2BPiskel-1.png%2B%25281%2529.png")
-  img4 = loadImage("https://3.bp.blogspot.com/-oOvzFqQm2O0/XABWnAfSN3I/AAAAAAAASjk/Ppd5haOeHPcdfXM3stDs9GxCb8KjW_X-QCLcBGAs/s320/templar%25252B%252525281%25252529.png")
-  img5 = loadImage("https://4.bp.blogspot.com/-hAtTuzITc4Q/XAKIcIykSlI/AAAAAAAASk4/609gpVSfp3cW3Jxx8tmHsnzM_ThGVB7iQCLcBGAs/s320/New%2BPiskel.png")
-  nome = loadImage("https://1.bp.blogspot.com/-SaEoPqra0ZU/XAM-Y10ePtI/AAAAAAAASl0/W0PAQWfMDucDQTmqjfQ4R45HZ9_lx5Y1gCLcBGAs/s320/New%2BPiskel%2B%25283%2529.png")
+  img = loadImage('espada.png')
+  img2 = loadImage('bruxa.png')
+  img3 = loadImage('castelo.png')
+  img4 = loadImage('hero.png')
+  img5 = loadImage('inimigo.png')
+  img6 = loadImage('background.jpg')
+  img7 = loadImage('background1.png')
+  img8 = loadImage('FINALDOGAME.jpg')
+  nome = loadImage('titulo.png')
+
 }
+
 
 function setup(){
 	canvas=createCanvas(1200, 600)
@@ -58,12 +63,12 @@ function setup(){
 }
 
 function draw(){
-	background(0, 153, 255,255)
+	background(img6, 153, 255,255)
 	image (nome,398,200,400,100)
 	textSize(32);
     
     textAlign(CENTER);
-
+	fill('#ffffff')
     text(' \n \n PRESSIONE ESPAÇO \n PARA \n JOGAR  ', 600, 300); 
     if(keyIsDown(32)){
     	play=true
@@ -75,9 +80,9 @@ function draw(){
 
 function setPlay(){
 		if(v>0){
-		background(0, 153, 255,255)
+		background(img7, 153, 255,255)
 		if(keyIsDown(RIGHT_ARROW)){ //setas direita e esquerda movimentam o personagem
-			posX+=8
+			posX+=8//
 		}
 
 
@@ -135,7 +140,7 @@ function setPlay(){
 		if(C2==true){
 			v--
 			posX=posX-100
-			//vivo2 = false
+			vivo2 = false
 
 		}
 		if(dano==true){
@@ -154,18 +159,24 @@ function setPlay(){
 		}
 		if(fase==1){
 			dif=1
+			 text('FASE 1', 600,300)
+
 		}
 		if(fase==2){
 			dif=1.25
+			text('FASE 2', 600,300)
 		}
 		if(fase==3){
 			dif=1.5
+			text('FASE 3', 600,300)
 		}
 		if(fase==4){
 			dif=1.75
+			text('FASE 4', 600,300)
 		}
 		if(fase==5){
 			dif=2
+			text('FASE 5', 600,300)
 		}
 
 		if(dano2==true){
@@ -188,7 +199,7 @@ function setPlay(){
 			C=true
 		}
 		if(posx3<=0){
-			C2 =true
+			C2=true
 			
 		}
 		if(dano == false){
@@ -209,12 +220,12 @@ function setPlay(){
 			posY-=20
 			posY+=velo
 		}
-		if(posx2 == 100){
+		if(posx2 <= 100){
 			v--
 			C=true
 			vivo=false
 		}
-		if(posx3 == 100){
+		if(posx3 <= 100){
 			v--
 			C2=true
 			vivo2=false
@@ -293,7 +304,7 @@ function setPlay(){
 	velo+=grav
 
 	if(fase==6){
-	background(0, 153, 255,255)
+	background(img8, 153, 255,255)
 	
     textSize(50);
     
@@ -316,7 +327,7 @@ function setPlay(){
       pontos = 0
       fase = 1  
       vivo = false
-      vivo2= false 
+      vivo2 = false 
       }	
 } 
 
@@ -338,7 +349,7 @@ else{
       pontos = 0
       fase = 1 
       vivo = false
-      vivo2= false 
+      vivo2 = false 
       }     
 }
 }	
